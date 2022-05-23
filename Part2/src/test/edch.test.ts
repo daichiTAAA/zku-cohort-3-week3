@@ -4,7 +4,7 @@ import {
   encrypt,
   genKeypair,
   genEcdhSharedKey,
-  EdDSA
+  EdDSA,
 } from '../index';
 
 describe('ECDH test', () => {
@@ -37,6 +37,9 @@ describe('ECDH test', () => {
       pubKey: alicePubKey,
     });
     const decryptedMessage = await decrypt(ciphertext, ecdhbobSharedKey);
+    console.log('decryptedMessage is: ', decryptedMessage);
+    console.log('aliceMessage is: ', aliceMessage);
+
     expect(decryptedMessage).toStrictEqual(aliceMessage);
   });
 
